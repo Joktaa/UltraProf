@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('inc/header.php');
+?>
 <!-- CONNEXION -->
 <form action="login.php" method="post">
     <input type="email" name="email" placeholder="Votre email">
