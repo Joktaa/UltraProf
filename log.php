@@ -2,19 +2,63 @@
 session_start();
 include('inc/header.php');
 ?>
-<!-- CONNEXION -->
-<form action="login.php" method="post">
-    <input type="email" name="email" placeholder="Votre email">
-    <input type="password" name="mdp" placeholder="Votre mot de passe">
-    <input type="submit" value="Connexion">
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </head>
+<body>
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#connexion">Connexion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#inscription">Inscription</a>
+            </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- CONNEXION -->
+            <div id="connexion" class="container tab-pane active"><br>
+                <form action="login.php" method="post">
+                    <div class="form-group">
+                      <label for="email">Email : </label>
+                      <input type="email" name="email" class="form-control" placeholder="Entrez votre adresse email">
+                      <label for="mdp">Mot de passe : </label>
+                      <input type="mdp" name="mdp" class="form-control" placeholder="Entrez votre mot de passe">
+                      <button type="submit" class="btn btn-primary">Connexion</button>
+                    </div>
+                </form>
+            </div>
 
-<!-- Inscription -->
-<form action="register.php" method="post">
-    <input type="text" name="prenom" placeholder="Votre prenom">
-    <input type="text" name="nom" placeholder="Votre nom">
-    <input type="email" name="email" placeholder="Votre email">
-    <input type="password" name="mdp1" placeholder="mot de passe">
-    <input type="password" name="mdp2" placeholder="confirmation">
-    <input type="submit" value="Inscription">
-</form>
+            <!-- INSCRIPTION -->
+            <div id="inscription" class="container tab-pane fade"><br>
+                <form action="register.php" method="post">
+                    <div class="form-group">
+                      <label for="prenom">Prénom : </label>
+                      <input type="prenom" name="prenom" class="form-control" placeholder="Entrez votre prénom">
+                      <label for="nom">Nom : </label>
+                      <input type="nom" name="nom" class="form-control" placeholder="Entrez votre nom">
+                      <label for="email">Email : </label>
+                      <input type="email" name="email" class="form-control" placeholder="Entrez votre adresse email">
+                      <label for="mdp1">Mot de passe : </label>
+                      <input type="mdp1" name="mdp1" class="form-control" placeholder="Entrez votre mot de passe">
+                      <label for="mdp2">Confirmation du mot de passe : </label>
+                      <input type="mdp2" name="mdp2" class="form-control" placeholder="Confirmez votre mot de passe">
+                      <button type="submit" class="btn btn-primary">Inscription</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
