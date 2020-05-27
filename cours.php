@@ -11,7 +11,8 @@ include('inc/header.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <style>
-        .container-fluid *{margin: 10px;}
+        .row{margin: 25px 0px;}
+        #footer{margin-bottom: 0px;}
         footer{background-color: silver;}
     </style>
   </head>
@@ -23,22 +24,28 @@ include('inc/header.php');
             <div class="row">
                 <!-- IMAGE -->
                 <div class="col-sm-2">
-                    <img src="./medecin.png" alt="photo de profil">
+                    <img src="./medecin.png" alt="photo de profil" style="height: 170px; width:144px">
                 </div>
-
+                
                 <!-- TAG -->
-                <div class="col-sm-5">
-                    <ul>
-                        <li>lacostn</li>
-                        <li>4/5</li>
-                        <li>135h</li>                        
-                        <li>#math #info #lechagedefiak</li>
-                    </ul>
+                <div class="col-sm-5" style="border: 1px solid #dee2e6">
+                    <p style="margin-top: 10px">Nom : </p>
+                    <p>Avis : </p>
+                    <p>Nombre d'heures : </p>
+                    <p>Tags : <span class="badge badge-pill badge-primary">#Math</span><span class="badge badge-pill badge-primary">#Informatique</span><span class="badge badge-pill badge-primary">#Lechagedefiak</span></p>
                 </div>
 
                 <!-- PAIEMENT -->
                 <div class="col-sm-4">
-                    <form action="" method="post">
+                    <h4>Réservez une heure !</h4>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">Une heure : 13€</a>
+                        <a href="#" class="list-group-item list-group-item-action">Pack 5h : 11€/h</a>
+                        <a href="#" class="list-group-item list-group-item-action">Pack 10h : 9,50€/h</a>
+                        <a href="#" class="list-group-item list-group-item-action">Pack 15h : 8,67€/h</a>
+                    </div>
+                    
+                    <!-- <form action="" method="post">
                         <select name="heures" class="custom-select custom-select-lg">
                             <option selected>Nombres d'heures</option>
                             <option value="un">Une heure : 13€</div></option>
@@ -47,12 +54,12 @@ include('inc/header.php');
                             <option value="quinze">Pack 15h : 8,67€/h</option>
                         </select>
                         <input class="btn btn-primary btn-block"type="submit" value="Réserver">
-                    </form>
+                    </form> -->
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <!-- INFOS -->
                     <div class="container box">
                         <!-- Nav tabs -->
@@ -81,19 +88,27 @@ include('inc/header.php');
             </div>
 
             <!-- CV -->
-            <div class="container" style="border: 1px solid black">
-                <h3>Curriculum Vitae</h3>
-                <p>J'ai appris grace aux indiens. Je suis donc l'homme ayant le plus de connaissances sur terre</p>
+            <div class="row">
+            <div class="col-7">
+                <div class="container" style="border: 1px solid #dee2e6">
+                    <h3>Curriculum Vitae</h3>
+                    <p>J'ai appris grace aux indiens. Je suis donc l'homme ayant le plus de connaissances sur terre</p>
+                </div>
+            </div>
             </div>
 
             <!-- AVIS -->
-            <div class="media border p-3">
-                <img src="./medecin.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                <div class="media-body">
-                    <h4>Emanuele Macron</h4>
-                    <h5>Tres fort meme si moins fort que moi</h5>
-                    <p>Ile é for mé moins que moi qui sui tre tre fort car je sui le presidant</p>
+            <div class="row">
+            <div class="col-7">
+                <div class="media border p-3">
+                    <img src="./medecin.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                    <div class="media-body">
+                        <h4>Emanuele Macron</h4>
+                        <h5>Tres fort meme si moins fort que moi</h5>
+                        <p>Ile é for mé moins que moi qui sui tre tre fort car je sui le presidant</p>
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
         </div>
@@ -101,7 +116,7 @@ include('inc/header.php');
     </div>
 
     <footer>
-        <div class="row">
+        <div class="row" id="footer">
             <!-- LOCALISATION -->
             <div class="col-sm-4">
                 <h4>Paramètres de localisation</h4>
