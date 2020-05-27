@@ -51,6 +51,7 @@ include('inc/header.php');
                 <div class="col-sm-7">
                     <!-- INFOS -->
                     <div class="container box">
+                        <h2 class="text-center">Apprendre a sucer des grosses boules d'hommes bien virils</h2>
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified" role="tablist">
                             <li class="nav-item">
