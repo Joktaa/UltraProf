@@ -44,17 +44,6 @@ include('inc/header.php');
                         <a href="#" class="list-group-item list-group-item-action">Pack 10h : 9,50€/h</a>
                         <a href="#" class="list-group-item list-group-item-action">Pack 15h : 8,67€/h</a>
                     </div>
-                    
-                    <!-- <form action="" method="post">
-                        <select name="heures" class="custom-select custom-select-lg">
-                            <option selected>Nombres d'heures</option>
-                            <option value="un">Une heure : 13€</div></option>
-                            <option value="cinq">Pack 5h : 11€/h</option>
-                            <option value="dix">Pack 10h : 9,50€/h</option>
-                            <option value="quinze">Pack 15h : 8,67€/h</option>
-                        </select>
-                        <input class="btn btn-primary btn-block"type="submit" value="Réserver">
-                    </form> -->
                 </div>
             </div>
 
