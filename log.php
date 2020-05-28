@@ -38,7 +38,7 @@ include('inc/header.php');
                       <label for="email">Email : </label>
                       <input type="email" name="email" class="form-control" placeholder="Entrez votre adresse email">
                       <label for="mdp">Mot de passe : </label>
-                      <input type="mdp" name="mdp" class="form-control" placeholder="Entrez votre mot de passe">
+                      <input type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe">
                       <div class="d-flex justify-content-center"><button type="submit" class="btn btn-primary">Connexion</button></div>
                     </div>
                 </form>
@@ -56,9 +56,9 @@ include('inc/header.php');
                       <label for="email">Email : </label>
                       <input type="email" name="email" class="form-control" placeholder="Entrez votre adresse email">
                       <label for="mdp1">Mot de passe : </label>
-                      <input type="mdp1" name="mdp1" class="form-control" placeholder="Entrez votre mot de passe">
+                      <input type="password" name="mdp1" class="form-control" placeholder="Entrez votre mot de passe">
                       <label for="mdp2">Confirmation du mot de passe : </label>
-                      <input type="mdp2" name="mdp2" class="form-control" placeholder="Confirmez votre mot de passe">
+                      <input type="password" name="mdp2" class="form-control" placeholder="Confirmez votre mot de passe">
                       <div class="d-flex justify-content-center"><button type="submit" class="btn btn-primary">Inscription</button></div>
                     </div>
                 </form>

@@ -52,7 +52,7 @@ include('inc/header.php');
                         <textarea name="parcours" cols="30" rows="8" class="form-control" placeholder="Formation, diplôme, autodidacte, niveau ..."></textarea>
                     </div>
                     <div class="col-sm-4">
-                        <label for="prix" style="margin-top: 50px">Le prix d'une heure : </label>
+                        <label for="prix" style="margin-top: 50px">Le prix d'une heure (en €) : </label>
                         <input type="number" class="form-control" name="prix" style="width: 50%; margin-left: 0px" placeholder="25">
                     </div>
                 </div>
