@@ -17,7 +17,7 @@ include('inc/header.php');
   </head>
 <body>
     <div class="container-fluid">
-        <form action="#" method="post">
+        <form action="chibractor.php" method="post">
             <div class="form-group"></div>
                 <!-- TITRE -->
                 <div class="row">
@@ -32,7 +32,7 @@ include('inc/header.php');
                     <div class="col-sm-3"></div>
                     <div class="col-sm-4">
                         <label for="profile">Votre profil : </label>
-                        <textarea name="profile" cols="30" rows="10" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
+                        <textarea name="profile" cols="30" rows="5" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
                     </div>
                     <div class="col-sm-4">
                         <div id="tags">
@@ -48,8 +48,8 @@ include('inc/header.php');
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-4">
-                        <label for="profile">Votre profil : </label>
-                        <textarea name="profile" cols="30" rows="10" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
+                        <label for="profile">Votre parcours : </label>
+                        <textarea name="parcours" cols="30" rows="8" class="form-control" placeholder="Formation, diplôme, autodidacte, niveau ..."></textarea>
                     </div>
                 </div>
 
