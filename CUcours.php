@@ -12,6 +12,7 @@ include('inc/header.php');
     <!-- CSS -->
     <style>
         label{margin-top: 10px;}
+        #tags * {margin-top: 5px;}
     </style>
   </head>
 <body>
@@ -33,12 +34,14 @@ include('inc/header.php');
                         <label for="profile">Votre profil : </label>
                         <textarea name="profile" cols="30" rows="10" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
                     </div>
-                    <div class="col-sm-4" id="tags">
-                        <label for="tag1">Vos tags :</label><br>
-                        <input type="text" name="tag1" class="form-control" style="width: 50%" placeholder="#math">
-                        <input type="text" name="tag2" class="form-control" style="width: 50%" placeholder="#python">
-                        <input type="text" name="tag3" class="form-control" style="width: 50%" placeholder="#web">
-                        <button onclick="addInput()" class="btn btn-primary">Ajouter un champ</button>
+                    <div class="col-sm-4">
+                        <div id="tags">
+                            <label for="tag1" style="margin-bottom: 0px;">Vos tags :</label><br>
+                            <input type="text" name="tag1" class="form-control" style="width: 50%" placeholder="#math">
+                            <input type="text" name="tag2" class="form-control" style="width: 50%" placeholder="#python">
+                            <input type="text" name="tag3" class="form-control" style="width: 50%" placeholder="#web">
+                        </div>
+                        <button type="button" onclick="addInput()" class="btn btn-primary" style="margin-top: 10px;">Ajouter un champ</button>
                     </div>
                 </div>
                 <!-- PALMARES -->
@@ -61,27 +64,22 @@ include('inc/header.php');
     </div>
 
     <script>
+        var compteurInput = 3;
         function addInput(){
-            let b = document.body;
-            let newP = document.createElement('p');
-            let newTexte = document.createTextNode('Texte écrit en js');
-            newP.textContent = 'Paragraphe en js';
-            b.append(newTexte);
+            if (compteurInput < 5) {
+                compteurInput++;
+                var tags = document.getElementById("tags");
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "tag" + compteurInput;
+                input.className = "form-control";
+                input.style.width = "50%";
+                input.placeholder = "#autre";
+                tags.appendChild(input);
+            } else {
+                alert("Limite de compteur atteinte")
+            }
         }
-        // var compteurInput = 3;
-        // function addInput(){
-        //     if (compteurInput <= 6) {
-        //         compteurInput++;
-        //         var tags = document.getElementById("tags");
-        //         var input = document.createElement("input");
-        //         input.type = "text";
-        //         // input.innerHTML = "<input type=\"text\" name=\"tag" + compteurInput + "\" class=\"form-control\" style=\"width: 50%\" placeholder=\"#autre\">";
-        //         tags.appendChild(input);
-        //         console.log("3");
-        //     } else {
-        //         alert("Limite de compteur atteinte")
-        //     }
-        // }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
