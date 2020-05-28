@@ -11,7 +11,7 @@ include('inc/header.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <style>
-        
+        label{margin-top: 10px;}
     </style>
   </head>
 <body>
@@ -28,7 +28,7 @@ include('inc/header.php');
                 </div>
                 <!-- PROFIL -->
                 <div class="row">
-                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3"></div>
                     <div class="col-sm-4">
                         <label for="profile">Votre profil : </label>
                         <textarea name="profile" cols="30" rows="10" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
@@ -43,10 +43,18 @@ include('inc/header.php');
                 </div>
                 <!-- PALMARES -->
                 <div class="row">
-                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3"></div>
                     <div class="col-sm-4">
                         <label for="profile">Votre profil : </label>
                         <textarea name="profile" cols="30" rows="10" class="form-control" placeholder="Je m'appelle Alex et je suis prof de maths ..."></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7"></div>
+                    <!-- BOUTON -->
+                    <div class="col-sm-2">
+                        <input class="btn btn-primary btn-block" type="submit" value="Valider">
                     </div>
                 </div>
         </form>
