@@ -24,18 +24,18 @@ if(isset($_SESSION['id'])){ ?>
         </div>
         <div class="row" id="ProfilContent">
             <article class="col-12 col-md-8 mx-auto text-center" id="userProfilContent">
-
-                <strong>Nom, prénom :</strong><?php echo ' ' . $_SESSION['nom'] . ' '. $_SESSION['prenom'] ?><br>
-
-                <strong>Email :</strong><?php echo ' ' . $_SESSION['email'] ?><br>
+                <div class="container-fluid" style="border: 1px solid black; padding: 10px 0px">
+                    <h5 style="font-weight: 700">Nom, prénom :</h5><?php echo ' ' . $_SESSION['nom'] . ' '. $_SESSION['prenom'] ?><br>
+                    <h5 style="font-weight: 700">Email :</h5><?php echo ' ' . $_SESSION['email'] ?><br>
+                </div>
                     
                 <div class="flex-column flex-lg-row justify-content-evenly">
-                    <div class="mt-5">
+                    <div class="mt-4">
                         <a href="modifUtilisateur.php">
                             <button class="btn btn-warning">Modifier le compte</button>
                         </a>
                     </div>
-                    <div class="mt-5">
+                    <div class="mt-2">
                         <a href="deleteUser.php">
                         <button id="deleteUserFromProfil" class="btn btn-danger">Supprimer votre compte</button>
                         </a>
