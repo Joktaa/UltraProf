@@ -27,7 +27,7 @@ $cours = $coursDB->coursDeLaSemaine();
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
-            <form class="form-inline" action="/action_page.php">
+            <form class="form-inline" action="/touslescours.php">
                 <input class="form-control mr-sm-2" name="recherche" type="text" style="width: 50%;" placeholder="Que voulez-vous apprendre ?">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
