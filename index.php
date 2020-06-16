@@ -38,6 +38,7 @@ $cours = $coursDB->coursDeLaSemaine();
     <h3 class="text-center">Les profs de la semaine</h3>
     <?php 
     echo '<pre>';
+    var_dump($cours);
     echo '</pre>';?>
         <div class="container" style="border: 1px solid black">
             <div class="row">
@@ -52,7 +53,7 @@ $cours = $coursDB->coursDeLaSemaine();
                                 </div>
                                 <img class="card-img-top" src="./medecin.png" alt="Photo du professeur">
                                 <div class="card-body">
-                                    <h4 class="card-title"><?php  ?></h4>
+                                    <h4 class="card-title"><?php echo $unCours['prenom'] . " " . $unCours['nom'] ?></h4>
                                 </div>
                                 <div class="card-footer">
                                     <input type="hidden" name="idUser" value="">
