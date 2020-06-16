@@ -45,7 +45,7 @@ $cours = $coursDB->coursDeLaSemaine();
                 foreach($cours as $unCours){
                 ?>
                     <div class="col-4 marge-top-bottom">
-                        <form action="profile.php">
+                        <form method="GET" action="cours.php">
                             <div class="card text-left">
                                 <div class="card-header">
                                     <h5 class="text-center"><?= $unCours['titre']; ?></h5>
@@ -55,8 +55,8 @@ $cours = $coursDB->coursDeLaSemaine();
                                     <h4 class="card-title"><?php echo $unCours['prenom'] . " " . $unCours['nom'] ?></h4>
                                 </div>
                                 <div class="card-footer">
-                                    <input type="hidden" name="idUser" value="">
-                                    <a class="btn btn-block btn-primary" href="./cours.php">Voir le cours</a>
+                                    <input type="hidden" name="idCours" value="<?= $unCours['id_cours']; ?>">
+                                    <button class="btn btn-block btn-primary" type="submit">Voir le cours</button>
                                 </div>
                             </div>
                         </form>

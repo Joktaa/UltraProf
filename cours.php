@@ -17,6 +17,19 @@ include('inc/header.php');
     </style>
   </head>
 <body>
+
+    <?php
+    require_once('inc/bdd.php');
+    $sql = 'SELECT cours.id AS id_cours, tags.id AS id_tags, utilisateur.id AS id_utilisateur, cours.prix as prix, cours.dateenvoi as date, cours.titre as titre, cours.profile as profile, cours.parcours as parcours, utilisateur.prenom as prenom, utilisateur.nom, utilisateur.email, tags.tag FROM cours JOIN utilisateur ON cours.id_utilisateur = utilisateur.id JOIN tags ON cours.id = tags.id_cours WHERE cours.id LIKE :cours';
+        
+    $select = $connexion->prepare($sql);
+        
+    $select->bindValue(':cours', '%' .$_GET['idCours'] . '%');
+        
+    $select->execute();
+    $cours = $select->fetchAll();
+    ?>
+
     <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2"></div>
@@ -29,20 +42,15 @@ include('inc/header.php');
                 
                 <!-- TAG -->
                 <div class="col-sm-5" style="border: 1px solid #dee2e6">
-                    <p style="margin-top: 10px">Nom : </p>
-                    <p>Avis : </p>
-                    <p>Nombre d'heures : </p>
-                    <p>Tags : <span class="badge badge-pill badge-primary">#Math</span><span class="badge badge-pill badge-primary">#Informatique</span><span class="badge badge-pill badge-primary">#Lechagedefiak</span></p>
+                    <p style="margin-top: 10px">Nom : <?php echo $cours[0]['nom'] . " " . $cours[0]['prenom']; ?></p>
+                    <p>Tags : <span class="badge badge-pill badge-primary"><?= $cours[0]['tag'] ?></span><span class="badge badge-pill badge-primary"><?= $cours[1]['tag'] ?></span><span class="badge badge-pill badge-primary"><?= $cours[2]['tag'] ?></span></p>
                 </div>
 
                 <!-- PAIEMENT -->
                 <div class="col-sm-4">
                     <h4>Réservez une heure !</h4>
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">Une heure : 13€</a>
-                        <a href="#" class="list-group-item list-group-item-action">Pack 5h : 11€/h</a>
-                        <a href="#" class="list-group-item list-group-item-action">Pack 10h : 9,50€/h</a>
-                        <a href="#" class="list-group-item list-group-item-action">Pack 15h : 8,67€/h</a>
+                        <a href="#" class="list-group-item list-group-item-action active">Une heure : <?= $cours[0]['prix']; ?>€</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +59,7 @@ include('inc/header.php');
                 <div class="col-sm-7">
                     <!-- INFOS -->
                     <div class="container box">
-                        <h2 class="text-center">Apprendre a sucer des grosses boules d'hommes bien virils</h2>
+                        <h2 class="text-center"><?= $cours[0]['titre']?></h2>
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified" role="tablist">
                             <li class="nav-item">
@@ -65,40 +73,16 @@ include('inc/header.php');
                         <div class="tab-content" >
                             <!-- PROFIL -->
                             <div id="profil" class="container tab-pane active"><br>
-                                ouais frr t'en pense quoi de ces tn ?
+                                <?= $cours[0]['profile']; ?>
                             </div>
 
                             <!-- PARCOURS -->
                             <div id="parcours" class="container tab-pane fade"><br>
-                                ca va frr le boss t'es en lacost tn et tou
+                                <?= $cours[0]['parcours']; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- CV -->
-            <div class="row">
-            <div class="col-7">
-                <div class="container" style="border: 1px solid #dee2e6">
-                    <h3>Curriculum Vitae</h3>
-                    <p>J'ai appris grace aux indiens. Je suis donc l'homme ayant le plus de connaissances sur terre</p>
-                </div>
-            </div>
-            </div>
-
-            <!-- AVIS -->
-            <div class="row">
-            <div class="col-7">
-                <div class="media border p-3">
-                    <img src="./medecin.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                    <div class="media-body">
-                        <h4>Emanuele Macron</h4>
-                        <h5>Tres fort meme si moins fort que moi</h5>
-                        <p>Ile é for mé moins que moi qui sui tre tre fort car je sui le presidant</p>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
         </div>

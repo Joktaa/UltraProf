@@ -29,7 +29,7 @@ class CoursDB{
 	}
 	
 	public function coursDeLaSemaine(){
-		$select = $this->bdd->query('SELECT * FROM ' . $this->tableName . ' JOIN utilisateur ON ' . $this->tableName .'.id_utilisateur = utilisateur.id ORDER BY cours.heurs DESC LIMIT 6');
+		$select = $this->bdd->query('SELECT cours.id AS id_cours, utilisateur.id AS id_utilisateur, cours.prix as prix, cours.dateenvoi as date, cours.titre as titre, cours.profile as profile, cours.parcours as parcours, utilisateur.prenom as prenom, utilisateur.nom, utilisateur.email FROM cours JOIN utilisateur ON cours.id_utilisateur = utilisateur.id ORDER BY cours.heurs DESC LIMIT 6');
 		return $select->fetchAll();
 	}
 
