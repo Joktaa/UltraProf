@@ -43,14 +43,15 @@ include('inc/header.php');
                 <!-- TAG -->
                 <div class="col-sm-5" style="border: 1px solid #dee2e6">
                     <p style="margin-top: 10px">Nom : <?php echo $cours[0]['nom'] . " " . $cours[0]['prenom']; ?></p>
+                    <p style="margin-top: 10px">Email : <?php echo $cours[0]['email']; ?></p>
                     <p>Tags : <span class="badge badge-pill badge-primary"><?= $cours[0]['tag'] ?></span><span class="badge badge-pill badge-primary"><?= $cours[1]['tag'] ?></span><span class="badge badge-pill badge-primary"><?= $cours[2]['tag'] ?></span></p>
                 </div>
 
                 <!-- PAIEMENT -->
                 <div class="col-sm-4">
-                    <h4>Réservez une heure !</h4>
+                    <h4>Prix de l'heure</h4>
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">Une heure : <?= $cours[0]['prix']; ?>€</a>
+                        <p href="#" class="list-group-item">Une heure : <?= $cours[0]['prix']; ?>€</p>
                     </div>
                 </div>
             </div>
@@ -116,10 +117,6 @@ include('inc/header.php');
             </div>
         </div>
     </footer>
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
