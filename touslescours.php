@@ -23,16 +23,63 @@ include('inc/header.php');
     } ?>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
-            <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" style="width: 50%;" placeholder="Que voulez-vous apprendre ?">
-                <button class="btn btn-success" type="submit">Search</button>
-            </form>
-            <h2 style="font-size: 20px">Nos profs vous aident à devenir meilleur.</h2>
+            <a href="/index.php">Retourner à l'accueil</a>
         </div>
     </div>
 
-    <h3 class="text-center">Profs de Mathématique</h3>
+<?php
+    require_once('inc/bdd.php');
+    
+    if(!empty($_GET)){
+    
+        $errors = [];
+    
+        if(empty($_GET['recherche'])){
+            $errors[] = 'recherche manquant';
+        }
+    
+        if(empty($errors)){
+            $sql = 'SELECT * FROM cours INNER JOIN utilisateur ON cours.id_utilisateur = utilisateur.id WHERE title LIKE :titre ';
+    
+            echo $sql; //pour débug
+    
+            $select = $connexion->prepare($sql);
+    
+            $select->bindValue(':titre', '%' .$_GET['titre'] . '%');
+            
+            if(!empty($_GET['auteur'])){
+                $select->bindValue(':auteur', '%' .$_GET['auteur'] . '%');
+            }
+            if(!empty($_GET['annee'])){
+                $select->bindValue(':annee', $_GET['annee']);
+            }
+    
+            $select->execute();
+            $articles = $select->fetchAll();
+            ?>
+            <ul>
+            <?php
+                foreach($articles as $article){
+                ?>
+                <li>		
+                    <h4>
+                    <?= preg_replace('#(' . strip_tags($_GET['titre']) . ')#i', "<span style='background-color: tomato;'>$1</span>", $article['title']); ?> 
+                    </h4>
+                    publié par <?= $article['Nom']; ?> le <?= $article['date_publi']; ?>
+                </li>
+                <?php
+                }
+    
+            ?>
+            </ul>
+            <?php
+        }
+        else{
+            echo implode('<br>', $errors);
+        }
+    }
+    ?>
+
     <div class="container" style="border: 1px solid black">
         <div class="row">
             <div class="col-4 marge-top-bottom">

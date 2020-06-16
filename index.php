@@ -28,7 +28,7 @@ $cours = $coursDB->findAllCours();
         <div class="container">
             <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
             <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" style="width: 50%;" placeholder="Que voulez-vous apprendre ?">
+                <input class="form-control mr-sm-2" name="recherche" type="text" style="width: 50%;" placeholder="Que voulez-vous apprendre ?">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
             <h2 style="font-size: 20px">Nos profs vous aident à devenir meilleur.</h2>
