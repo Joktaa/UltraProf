@@ -36,9 +36,6 @@ $cours = $coursDB->coursDeLaSemaine();
     </div>
 
     <h3 class="text-center">Les profs de la semaine</h3>
-    <?php 
-    echo '<pre>';
-    echo '</pre>';?>
         <div class="container" style="border: 1px solid black">
             <div class="row">
                 <?php if(isset($_SESSION['id'])){
