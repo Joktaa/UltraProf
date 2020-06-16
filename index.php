@@ -38,7 +38,6 @@ $cours = $coursDB->coursDeLaSemaine();
     <h3 class="text-center">Les profs de la semaine</h3>
     <?php 
     echo '<pre>';
-    var_dump($cours);
     echo '</pre>';?>
         <div class="container" style="border: 1px solid black">
             <div class="row">
