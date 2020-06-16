@@ -3,7 +3,7 @@ session_start();
 include('inc/header.php');
 require_once('class/CoursDB.php');
 $coursDB = new CoursDB();
-$cours = $coursDB->findAllCours();
+$cours = $coursDB->coursDeLaSemaine();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,7 +38,6 @@ $cours = $coursDB->findAllCours();
     <h3 class="text-center">Les profs de la semaine</h3>
     <?php 
     echo '<pre>';
-    var_dump($cours);
     echo '</pre>';?>
         <div class="container" style="border: 1px solid black">
             <div class="row">
