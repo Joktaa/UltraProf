@@ -50,7 +50,6 @@ include('inc/header.php');
                 $select->execute();
                 $cours = $select->fetchAll();
                 ?>
-                <ul>
                 <?php
                     foreach($cours as $unCours){
                     ?>
@@ -73,7 +72,6 @@ include('inc/header.php');
                     }
         
                 ?>
-                </ul>
                 <?php
             }
             else{
