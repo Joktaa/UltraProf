@@ -5,7 +5,7 @@ include('inc/header.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>S'inscrire / Se connecter</title>
+    <title>Recherche</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -23,80 +23,64 @@ include('inc/header.php');
     } ?>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <a href="/index.php">Retourner à l'accueil</a>
+            <a href="index.php">Retourner à l'accueil</a>
         </div>
     </div>
 
-<?php
-    require_once('inc/bdd.php');
-    
-    if(!empty($_GET)){
-    
-        $errors = [];
-    
-        if(empty($_GET['recherche'])){
-            $errors[] = 'recherche manquant';
-        }
-    
-        if(empty($errors)){
-            $sql = 'SELECT * FROM cours INNER JOIN utilisateur ON cours.id_utilisateur = utilisateur.id WHERE title LIKE :titre ';
-    
-            echo $sql; //pour débug
-    
-            $select = $connexion->prepare($sql);
-    
-            $select->bindValue(':titre', '%' .$_GET['titre'] . '%');
-            
-            if(!empty($_GET['auteur'])){
-                $select->bindValue(':auteur', '%' .$_GET['auteur'] . '%');
-            }
-            if(!empty($_GET['annee'])){
-                $select->bindValue(':annee', $_GET['annee']);
-            }
-    
-            $select->execute();
-            $articles = $select->fetchAll();
-            ?>
-            <ul>
-            <?php
-                foreach($articles as $article){
-                ?>
-                <li>		
-                    <h4>
-                    <?= preg_replace('#(' . strip_tags($_GET['titre']) . ')#i', "<span style='background-color: tomato;'>$1</span>", $article['title']); ?> 
-                    </h4>
-                    publié par <?= $article['Nom']; ?> le <?= $article['date_publi']; ?>
-                </li>
-                <?php
-                }
-    
-            ?>
-            </ul>
-            <?php
-        }
-        else{
-            echo implode('<br>', $errors);
-        }
-    }
-    ?>
-
     <div class="container" style="border: 1px solid black">
         <div class="row">
-            <div class="col-4 marge-top-bottom">
-                <div class="card-header">
-                    <h5 class="text-center">Fraction</h5>
-                </div>
-                <div class="card text-left">
-                    <img class="card-img-top" src="./medecin.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Alex Ander</h4>
-                        <p class="card-text">Je m'appelle Alex et je suis gentil</p>
+        <?php
+        require_once('inc/bdd.php');
+        
+        if(!empty($_GET)){
+        
+            $errors = [];
+        
+            if(empty($_GET['recherche'])){
+                $errors[] = 'recherche manquant';
+            }
+        
+            if(empty($errors)){
+                $sql = 'SELECT * FROM cours INNER JOIN utilisateur ON cours.id_utilisateur = utilisateur.id WHERE titre LIKE :titre ';
+        
+                $select = $connexion->prepare($sql);
+        
+                $select->bindValue(':titre', '%' .$_GET['recherche'] . '%');
+        
+                $select->execute();
+                $cours = $select->fetchAll();
+                ?>
+                <ul>
+                <?php
+                    foreach($cours as $unCours){
+                    ?>
+                    <div class="col-4 marge-top-bottom">
+                        <div class="card-header">
+                            <h5 class="text-center"><?= $unCours['titre']; ?></h5>
+                        </div>
+                        <div class="card text-left">
+                            <img class="card-img-top" src="./medecin.png">
+                            <div class="card-body">
+                                <h4 class="card-title">Alex Ander</h4>
+                                <p class="card-text">Je m'appelle Alex et je suis gentil</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-block btn-primary">Voir le profil</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-primary">Voir le profil</a>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                    }
+        
+                ?>
+                </ul>
+                <?php
+            }
+            else{
+                echo implode('<br>', $errors);
+            }
+        }
+        ?>
         </div>
     </div>
 
