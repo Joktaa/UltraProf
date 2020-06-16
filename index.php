@@ -56,7 +56,7 @@ $cours = $coursDB->coursDeLaSemaine();
                                 </div>
                                 <div class="card-footer">
                                     <input type="hidden" name="idUser" value="">
-                                    <button class="btn btn-block btn-primary">Voir le profil</button>
+                                    <a class="btn btn-block btn-primary" href="./cours.php">Voir le cours</a>
                                 </div>
                             </div>
                         </form>
