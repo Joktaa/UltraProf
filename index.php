@@ -27,7 +27,7 @@ $cours = $coursDB->coursDeLaSemaine();
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
-            <form class="form-inline" action="/touslescours.php">
+            <form class="form-inline" method="GET" action="touslescours.php">
                 <input class="form-control mr-sm-2" name="recherche" type="text" style="width: 50%;" placeholder="Que voulez-vous apprendre ?">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
@@ -36,10 +36,6 @@ $cours = $coursDB->coursDeLaSemaine();
     </div>
 
     <h3 class="text-center">Les profs de la semaine</h3>
-    <?php 
-    echo '<pre>';
-    var_dump($cours);
-    echo '</pre>';?>
         <div class="container" style="border: 1px solid black">
             <div class="row">
                 <?php if(isset($_SESSION['id'])){
