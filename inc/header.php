@@ -16,20 +16,19 @@
 					<a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
 				</li>
 	<?php
-    if(isset($_GET['deco'])){
-        session_destroy();
-        header('location:index.php');
-    }
 	if(isset($_SESSION['id'])){
 		?>
 		<li class="nav-item">
-			<a class="nav-link" href="profile.php">Profile</a>
+			<a class="nav-link" href="mon_profile.php">Profile</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="cours.php">Cours</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="header.php?deco">Déconnexion</a>
+			<a class="nav-link" href="CUcours.php">Créer un cours</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index.php?deco">Déconnexion</a>
 		</li>
 	<?php
 	}

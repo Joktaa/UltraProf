@@ -35,14 +35,14 @@ if(!empty($_POST)){
     	else{
 			echo '<script>
 			alert("Identifiants invalides");
-			window.location.href="login.php";
+			window.location.href="log.php";
 			</script>';
     	}
 	}
 	else {
 		echo '<script>
 		alert("Identifiants invalides");
-		window.location.href="login.php";
+		window.location.href="log.php";
 		</script>';
 	}
 

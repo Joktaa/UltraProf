@@ -1,5 +1,5 @@
 <?php
-class OffreDB{
+class CoursDB{
 	
 	private $bdd;
 
@@ -26,6 +26,11 @@ class OffreDB{
 	public function findAllCours(){
 		$select = $this->bdd->query('SELECT * FROM ' . $this->tableName);
 		return $select->fetchAll();
-    }
+	}
+	
+	public function coursDeLaSemaine(){
+		$select = $this->bdd->prepare("SELECT * FROM ' . $this->tableName . ' JOIN utilisateur ON ' . $this->tableName .'id_utilisateur = utilisateur.id ORDER BY cours.heurs DESC LIMIT 6");
+		return $select->fetchAll();
+	}
 
 }

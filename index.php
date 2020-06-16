@@ -1,11 +1,14 @@
 <?php
 session_start();
 include('inc/header.php');
+require_once('class/CoursDB.php');
+$coursDB = new CoursDB();
+$cours = $coursDB->findAllCours();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>S'inscrire / Se connecter</title>
+    <title>Accueil</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,6 +19,11 @@ include('inc/header.php');
     </style>
   </head>
 <body>
+    <?php
+    if(isset($_GET['deco'])){
+        session_destroy();
+        header('location:index.php');
+    } ?>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
@@ -28,26 +36,47 @@ include('inc/header.php');
     </div>
 
     <h3 class="text-center">Les profs de la semaine</h3>
-    <div class="container" style="border: 1px solid black">
-        <!-- FAIRE UNE BOUCLE POUR AFFICHER TOUT LES PROFILS -->
-        <div class="row">
-            <div class="col-4 marge-top-bottom">
-                <div class="card text-left">
-                    <div class="card-header">
-                        <h5 class="text-center">Mathématiques</h5>
+    <?php 
+    echo '<pre>';
+    var_dump($cours);
+    echo '</pre>';?>
+        <div class="container" style="border: 1px solid black">
+            <div class="row">
+                <?php if(isset($_SESSION['id'])){
+                foreach($cours as $unCours){
+                ?>
+                    <div class="col-4 marge-top-bottom">
+                        <form action="profile.php">
+                            <div class="card text-left">
+                                <div class="card-header">
+                                    <h5 class="text-center"><?= $unCours['titre']; ?></h5>
+                                </div>
+                                <img class="card-img-top" src="./medecin.png" alt="Photo du professeur">
+                                <div class="card-body">
+                                    <h4 class="card-title"><?php  ?></h4>
+                                </div>
+                                <div class="card-footer">
+                                    <input type="hidden" name="idUser" value="">
+                                    <button class="btn btn-block btn-primary">Voir le profil</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <img class="card-img-top" src="./medecin.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Alex Ander</h4>
-                        <p class="card-text">Je m'appelle Alex et je suis gentil</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-primary">Voir le profil</a>
-                    </div>
+                <?php }
+                }else { ?>
+            </div>
+        </div>
+        <div class="container" style="border: 1px solid black">
+            <div class="row">
+                <div class="col-4 marge-top-bottom">
+                    <img class="card-img-top" src="./classe.jpg" style="filter: blur(5px);">
+                </div>
+                <div class="col-8 marge-top-bottom text-center">
+                    <p class="alert alert-warning">Vous devez être connecté pour voir les professeurs de la semaine.</>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
 
     <footer style="background-color: #e9ecef; margin-top: 20px;">
         <div class="container">

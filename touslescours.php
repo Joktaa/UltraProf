@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('inc/header.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,6 +16,11 @@
     </style>
   </head>
 <body>
+    <?php
+    if(isset($_GET['deco'])){
+        session_destroy();
+        header('location:index.php');
+    } ?>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h2 style="font-size: 20px">Apprendre c'est bien,<br>Apprendre des meilleurs c'est mieux.</h2>
@@ -25,7 +34,6 @@
 
     <h3 class="text-center">Profs de Mathématique</h3>
     <div class="container" style="border: 1px solid black">
-        <!-- FAIRE UNE BOUCLE POUR AFFICHER TOUT LES PROFILS -->
         <div class="row">
             <div class="col-4 marge-top-bottom">
                 <div class="card-header">
