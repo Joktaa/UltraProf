@@ -23,9 +23,6 @@
 			<a class="nav-link" href="mon_profile.php">Profile</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="cours.php">Cours</a>
-		</li>
-		<li class="nav-item">
 			<a class="nav-link" href="CUcours.php">Créer un cours</a>
 		</li>
 		<li class="nav-item">
